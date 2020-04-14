@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fitsSystemWindows="true"
+    tools:context=".AlbumActivity">
+
+   <android.support.design.widget.AppBarLayout
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       android:fitsSystemWindows="true"
+       android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+       <android.support.design.widget.CollapsingToolbarLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:fitsSystemWindows="true"
+           app:layout_scrollFlags="scroll|exitUntilCollapsed"
+           app:contentScrim="?attr/colorPrimary">
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:scaleType="centerCrop"
+               android:src="@drawable/artista"/>
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"/>
+
+
+       </android.support.design.widget.CollapsingToolbarLayout>
+
+   </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewAlbums"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_overlapTop="30dp"
+        tools:listitem="@layout/item_album"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
