@@ -12,12 +12,12 @@ class SongHolder(val view: View): RecyclerView.ViewHolder(view) {
     fun bindSong(songModel: SongModel){
         view.txtTitleSong.text = songModel.title
         view.txtDurationSong.text = calculateTime(songModel.time)
-        view.setOnClickListener{
+        /*view.setOnClickListener{
             val intent = Intent(Intent.ACTION_VIEW).setData(Uri.parse(songModel.url))
             if(intent.resolveActivity(view.context.packageManager) != null) {
                 view.context.startActivity(intent)
             }
-        }
+        }*/
 
     }
 

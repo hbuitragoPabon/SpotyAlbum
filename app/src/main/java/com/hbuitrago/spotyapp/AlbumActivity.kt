@@ -25,7 +25,7 @@ class AlbumActivity : AppCompatActivity(), ListenerAlbum {
 
         validateInternetToGetAlbums()
 
-       // recyclerViewAlbums.layoutManager = GridLayoutManager(this,2)
+        recyclerViewAlbums.layoutManager = GridLayoutManager(this,2)
 
        /* val itemsAlbum = (0..20).map {item ->
             AlbumModel(item, "Titulo $item","" )
