@@ -1,20 +1,26 @@
 package com.hbuitrago.spotyapp
 
-import android.content.Intent
-import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import com.hbuitrago.spotyapp.listener.ListenerSong
 import com.hbuitrago.spotyapp.models.SongModel
 import kotlinx.android.synthetic.main.item_song.view.*
 
-class SongAdapter(val listSong: List<SongModel>, val listener: ListenerSong): RecyclerView.Adapter<SongAdapter.SongHolder>() {
+class SongAdapter(
+    val listSong: List<SongModel>,
+    val songListener: ListenerSong
+): RecyclerView.Adapter<SongHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongHolder {
-        return SongHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_song,parent,false))
+        return SongHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.item_song,
+                parent,
+                false
+            ),songListener
+        )
     }
 
     override fun getItemCount(): Int {
@@ -27,7 +33,7 @@ class SongAdapter(val listSong: List<SongModel>, val listener: ListenerSong): Re
 
 
 
-    inner class SongHolder(val view: View): RecyclerView.ViewHolder(view){
+    /*inner class SongHolder(val view: View): RecyclerView.ViewHolder(view){
         fun bindSong(songModel: SongModel){
             view.txtTitleSong.text = songModel.title
             view.txtDurationSong.text = calculateTime(songModel.time)
@@ -43,5 +49,5 @@ class SongAdapter(val listSong: List<SongModel>, val listener: ListenerSong): Re
         val seconds = duration.toInt() / 1000 % 60
         return "$minutes:${if(seconds <10) "0$seconds" else seconds}"
 
-    }
+    }*/
 }

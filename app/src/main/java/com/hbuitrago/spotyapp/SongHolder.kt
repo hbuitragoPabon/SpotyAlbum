@@ -4,14 +4,19 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.hbuitrago.spotyapp.listener.ListenerSong
 import com.hbuitrago.spotyapp.models.SongModel
 import kotlinx.android.synthetic.main.item_song.view.*
 
-class SongHolder(val view: View): RecyclerView.ViewHolder(view) {
+class SongHolder(val view: View, val listener: ListenerSong): RecyclerView.ViewHolder(view) {
 
     fun bindSong(songModel: SongModel){
         view.txtTitleSong.text = songModel.title
         view.txtDurationSong.text = calculateTime(songModel.time)
+        view.setOnClickListener{
+            listener.onClickedSong(songModel.url)
+        }
+
         /*view.setOnClickListener{
             val intent = Intent(Intent.ACTION_VIEW).setData(Uri.parse(songModel.url))
             if(intent.resolveActivity(view.context.packageManager) != null) {

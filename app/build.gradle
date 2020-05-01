@@ -35,7 +35,7 @@ android {
 
 }
 
-androidExtensions{
+androidExtensions {
     experimental = true
 }
 

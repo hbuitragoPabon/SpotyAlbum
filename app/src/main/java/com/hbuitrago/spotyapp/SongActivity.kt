@@ -11,7 +11,6 @@ import com.hbuitrago.spotyapp.models.AlbumModel
 import com.hbuitrago.spotyapp.models.SongModel
 import com.hbuitrago.spotyapp.repository.SpotyRepository
 import com.hbuitrago.spotyapp.utils.ITEM_ALBUM
-import com.hbuitrago.spotyapp.utils.SONG_ALBUM
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_song.*
 import java.lang.Exception
@@ -76,10 +75,17 @@ class SongActivity : AppCompatActivity(), ListenerSong {
         }
     }
 
-    override fun onClickedSong(song: SongModel) {
+    override fun onClickedSong(urlSong: String) {
+        val intent = Intent(Intent.ACTION_VIEW).setData(Uri.parse(urlSong))
+        if(intent.resolveActivity(this.packageManager) != null) {
+            startActivity(intent)
+        }
+    }
+
+    /*override fun onClickedSong(song: SongModel) {
         val intent = Intent(Intent.ACTION_VIEW).setData(Uri.parse(song.url))
         intent.putExtra(SONG_ALBUM,song)
        startActivity(intent)
 
-    }
+    }*/
 }
